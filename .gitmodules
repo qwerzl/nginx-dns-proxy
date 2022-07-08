@@ -1,0 +1,6 @@
+[submodule "js"]
+	path = js
+	url = https://github.com/TuxInvader/nginx-dns.git
+[submodule "nginx-dns"]
+	path = nginx-dns
+	url = https://github.com/TuxInvader/nginx-dns.git
