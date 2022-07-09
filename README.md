@@ -4,7 +4,7 @@ git clone https://github.com/qwerzl/nginx-dns-proxy --recurse-submodules
 
 cd nginx-dns
 
-printf "[USERNAME]:$(openssl passwd -crypt [PASSWORD])\n" >>/home/htpasswd
+printf "[USERNAME]:$(openssl passwd -crypt [PASSWORD])\n" >>./htpasswd
 
 sudo docker run \
   -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro \
