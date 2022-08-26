@@ -2,7 +2,7 @@
 ```
 git clone https://github.com/qwerzl/nginx-dns-proxy --recurse-submodules
 
-cd nginx-dns
+cd nginx-dns-proxy
 
 
 sudo docker pull macbre/nginx-http3:latest
