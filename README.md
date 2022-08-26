@@ -6,6 +6,8 @@ cd nginx-dns
 
 printf "[USERNAME]:$(openssl passwd -crypt [PASSWORD])\n" >>./htpasswd
 
+sudo docker pull macbre/nginx-http3:latest
+
 sudo docker run \
   -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro \
   -v [fullchain.cer]:/etc/nginx/ssl/certs/doh.local.pem  \
@@ -13,12 +15,12 @@ sudo docker run \
   -v $(pwd)/nginx-dns/njs.d:/etc/nginx/njs.d:ro \
   -v $(pwd)/htpasswd:/home/htpasswd -p [port]:8043  \
   --name nginx-dns \
-  nginx:latest
+  macbre/nginx-http3:latest
 ```
 
 Defult max-connection number is set to 5. One may change it through `nginx.conf`.
 
-**NOTICE**: basic auth is only configured for the DoH as for now.
+**NOTICE**: basic auth is only available for DoH.
 
 # TODO
-[ ] get that `nginx-quic` docker image right
+- [x] get that `nginx-quic` docker image right
