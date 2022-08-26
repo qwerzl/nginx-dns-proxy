@@ -4,7 +4,6 @@ git clone https://github.com/qwerzl/nginx-dns-proxy --recurse-submodules
 
 cd nginx-dns
 
-printf "[USERNAME]:$(openssl passwd -crypt [PASSWORD])\n" >>./htpasswd
 
 sudo docker pull macbre/nginx-http3:latest
 
@@ -13,7 +12,7 @@ sudo docker run \
   -v [fullchain.cer]:/etc/nginx/ssl/certs/doh.local.pem  \
   -v [key]:/etc/nginx/ssl/private/doh.local.pem \
   -v $(pwd)/nginx-dns/njs.d:/etc/nginx/njs.d:ro \
-  -v $(pwd)/htpasswd:/home/htpasswd -p [port]:8043  \
+  -p [port]:8043  \
   --name nginx-dns \
   macbre/nginx-http3:latest
 ```
